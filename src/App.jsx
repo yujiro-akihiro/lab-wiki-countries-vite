@@ -1,20 +1,22 @@
-import "./App.css";
 import React from "react";
 import HomePage from "./pages/HomePage";
-import CountryDetails from "./pages/CountryDetailsPage";
+import CountryDetailsPage from "./pages/CountryDetailsPage";
+import Navbar from "./components/Navbar";
 import { Routes, Route } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.css";
 
 function App() {
   return (
     <div className="App">
-      <h1>LAB | React WikiCountries</h1>
-      <Routes>
-        <Route path="/" element={<HomePage title="Home Page" />} />
-        <Route path="/:countryId" element={<CountryDetails title="Country Details" />} />
-      </Routes>
+      <Navbar />
+      <div className="container">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/:countryId" element={<CountryDetailsPage />} />
+        </Routes>
+      </div>
     </div>
   );
 }
 
 export default App;
-
