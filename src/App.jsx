@@ -1,6 +1,6 @@
 import React from "react";
 import HomePage from "./pages/HomePage";
-import CountryDetailsPage from "./pages/CountryDetailsPage"; // 修正: インポート名を正しく設定
+import CountryDetailsPage from "./pages/CountryDetailsPage";
 import Navbar from "./components/Navbar";
 import { Routes, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
@@ -12,7 +12,7 @@ function App() {
       <div className="container">
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/:countryId" element={<CountryDetailsPage />} /> {/* 修正: ルート設定を確認 */}
+          <Route path="/:countryId" element={<CountryDetailsPage />} />
         </Routes>
       </div>
     </div>
