@@ -23,7 +23,7 @@ function HomePage() {
       <ul className="list-group">
         {countries.map((country) => (
           <li key={country.alpha3Code} className="list-group-item list-group-item-action">
-            <Link to={`/${country.alpha3Code}`} className="d-flex align-items-center">
+            <Link to={`/${country.alpha3Code}`} className="d-flex align-items-center text-reset text-decoration-none">
               <img
                 src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`}
                 alt={`${country.name.common}`}

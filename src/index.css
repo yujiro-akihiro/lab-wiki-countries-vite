@@ -1,0 +1,9 @@
+.list-group-item-action:hover {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .list-group-item-action:hover a {
+    color: white;
+  }
+  
