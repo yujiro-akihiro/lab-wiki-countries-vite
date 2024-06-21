@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 
-function CountryDetails() {
+function CountryDetailsPage() {
   const { countryId } = useParams();
   const [country, setCountry] = useState(null);
 
@@ -11,15 +11,15 @@ function CountryDetails() {
       .get(`https://ih-countries-api.herokuapp.com/countries/${countryId}`)
       .then((response) => {
         setCountry(response.data);
-        // console.log(response.data); データ構造を確認するためにログに出力
+        // console.log(response.data);  check Data structure
       })
       .catch((error) => {
         console.error("Error fetching the country data:", error);
       });
   }, [countryId]);
 
-  if (!country) {
-    return <div>Loading...</div>; // Loading OPT
+  if (country === null || country === undefined) {
+    return <div>Loading...</div>; // Loading OPT.
   }
 
   return (
@@ -30,12 +30,18 @@ function CountryDetails() {
       <p>Area: {country.area} km²</p>
       <p>Borders:</p>
       <ul>
-        {country.borders.map((border) => (
-          <li key={border}>{border}</li>
-        ))}
+        {country.borders.length > 0 ? (
+          country.borders.map((border) => (
+            <li key={border}>
+              <Link to={`/${border}`}>{border}</Link>
+            </li>
+          ))
+        ) : (
+          <li>No borders</li>
+        )}
       </ul>
     </div>
   );
 }
 
-export default CountryDetails;
+export default CountryDetailsPage;
